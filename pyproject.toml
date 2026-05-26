@@ -1,0 +1,63 @@
+[project]
+name = "flowforge"
+version = "0.1.0"
+description = "A distributed DAG orchestration engine built with FastAPI, Celery, Redis, and PostgreSQL."
+requires-python = ">=3.10"
+readme = "README.md"
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+  "ASYNC",
+  "B",
+  "C4",
+  "DTZ",
+  "E",
+  "F",
+  "I",
+  "RUF",
+  "UP",
+]
+ignore = ["B008"]
+
+[tool.ruff.lint.per-file-ignores]
+"alembic/env.py" = ["E402"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+plugins = []
+warn_unused_configs = true
+exclude = ["alembic/versions"]
+
+[[tool.mypy.overrides]]
+module = [
+  "alembic.*",
+  "celery.*",
+  "jose.*",
+  "passlib.*",
+  "prometheus_client.*",
+  "structlog.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+
+[tool.coverage.run]
+branch = true
+source = ["app"]
+
+[tool.coverage.report]
+fail_under = 85
+show_missing = true
+skip_covered = true

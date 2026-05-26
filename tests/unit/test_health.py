@@ -1,0 +1,15 @@
+import pytest
+
+
+@pytest.mark.asyncio
+async def test_health_endpoint(async_client) -> None:
+    response = await async_client.get("/health")
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "status": "ok",
+        "service": "FlowForge",
+        "version": "0.1.0",
+        "environment": "development",
+    }
+
