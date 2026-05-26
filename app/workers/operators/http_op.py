@@ -7,4 +7,3 @@ class HTTPOperator(Operator):
 
     async def execute(self, context: OperatorContext) -> dict[str, object]:
         raise NotImplementedError("HTTPOperator execution is implemented in Phase 3.")
-

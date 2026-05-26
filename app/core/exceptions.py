@@ -22,7 +22,7 @@ class ConflictError(FlowForgeError):
 
 
 class ValidationError(FlowForgeError):
-    status_code = status.HTTP_422_UNPROCESSABLE_ENTITY
+    status_code = status.HTTP_422_UNPROCESSABLE_CONTENT
     code = "validation_error"
 
 
@@ -42,4 +42,3 @@ def register_exception_handlers(app: FastAPI) -> None:
                 }
             },
         )
-

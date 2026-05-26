@@ -9,4 +9,3 @@ api_router.include_router(runs.router, tags=["runs"])
 api_router.include_router(tasks.router, tags=["task-runs"])
 api_router.include_router(schedules.router, prefix="/schedules", tags=["schedules"])
 api_router.include_router(ai.router, prefix="/ai", tags=["ai"])
-

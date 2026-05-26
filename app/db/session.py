@@ -21,4 +21,3 @@ AsyncSessionLocal = async_sessionmaker(
 async def get_session() -> AsyncIterator[AsyncSession]:
     async with AsyncSessionLocal() as session:
         yield session
-

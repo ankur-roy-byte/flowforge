@@ -28,4 +28,3 @@ OPERATOR_REGISTRY: dict[str, type[Operator]] = {}
 def register(cls: type[Operator]) -> type[Operator]:
     OPERATOR_REGISTRY[cls.operator_type] = cls
     return cls
-

@@ -12,4 +12,3 @@ async def test_health_endpoint(async_client) -> None:
         "version": "0.1.0",
         "environment": "development",
     }
-

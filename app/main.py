@@ -10,6 +10,7 @@ from app.core.config import Settings, get_settings
 from app.core.exceptions import register_exception_handlers
 from app.core.logging import configure_logging, get_logger
 from app.schemas.health import HealthResponse
+from app.websockets.routes import router as websocket_router
 
 
 @asynccontextmanager
@@ -39,6 +40,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     register_exception_handlers(app)
     app.include_router(api_router, prefix=resolved_settings.api_v1_prefix)
+    app.include_router(websocket_router)
 
     @app.get(
         "/health",
@@ -66,4 +68,3 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
 
 app = create_app()
-

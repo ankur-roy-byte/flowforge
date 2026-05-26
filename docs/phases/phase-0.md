@@ -33,8 +33,11 @@ pytest tests/unit/test_health.py
 
 ## Verification
 
-- Passed: `py -3.10 -m compileall app tests`
-- Not run locally: `pytest tests/unit/test_health.py`, because pytest is not installed for the available Python interpreters.
+- Passed: `.venv\Scripts\python -m compileall app tests`
+- Passed: `.venv\Scripts\ruff check .`
+- Passed: `.venv\Scripts\black --check .`
+- Passed: `.venv\Scripts\mypy app`
+- Passed: `.venv\Scripts\pytest`
 - Not run locally: `docker compose config --quiet`, because Docker is not installed.
 
 ## What We Just Learned

@@ -6,4 +6,3 @@ class HealthResponse(BaseModel):
     service: str = Field(examples=["FlowForge"])
     version: str = Field(examples=["0.1.0"])
     environment: str = Field(examples=["development"])
-

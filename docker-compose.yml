@@ -5,7 +5,7 @@ services:
       dockerfile: docker/api.Dockerfile
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
     env_file:
-      - .env.example
+      - .env
     volumes:
       - ./app:/code/app
       - ./alembic:/code/alembic
@@ -24,7 +24,7 @@ services:
       dockerfile: docker/worker.Dockerfile
     command: celery -A app.workers.celery_app:celery_app worker --loglevel=INFO
     env_file:
-      - .env.example
+      - .env
     volumes:
       - ./app:/code/app
     depends_on:
@@ -39,7 +39,7 @@ services:
       dockerfile: docker/worker.Dockerfile
     command: celery -A app.workers.celery_app:celery_app beat --loglevel=INFO
     env_file:
-      - .env.example
+      - .env
     volumes:
       - ./app:/code/app
     depends_on:
@@ -76,4 +76,3 @@ services:
 
 volumes:
   postgres_data:
-

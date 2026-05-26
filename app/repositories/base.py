@@ -8,4 +8,3 @@ ModelT = TypeVar("ModelT")
 class Repository(Generic[ModelT]):
     def __init__(self, session: AsyncSession) -> None:
         self.session = session
-

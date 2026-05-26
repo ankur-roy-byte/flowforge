@@ -34,10 +34,16 @@ Phase 0 is implemented:
 - Docker Compose includes `api`, `worker`, `beat`, `db`, and `redis`.
 - Alembic async environment is scaffolded.
 - Worker and operator packages are scaffolded for later phases.
+- Built-in operator modules are imported from `app.workers.operators`, so `OPERATOR_REGISTRY` is populated when the package is imported.
+- WebSocket routes are wired into the app shell; concrete `/ws/runs/{run_id}` behavior lands in Phase 4.
 - README links high-level and low-level docs.
+- `docs/implementation-checklist.md` tracks the spec-to-repo audit and remaining phase work.
+- CI workflow skeleton exists in `.github/workflows/ci.yml`.
 - Core dependency pins were checked against PyPI on 2026-05-26.
-- Syntax verification passed with `py -3.10 -m compileall app tests`.
-- `pytest` was not executed locally because no installed Python interpreter currently has pytest available.
+- `redis` is pinned to `6.4.0` because Celery/Kombu's Redis extra currently requires `redis<6.5`.
+- Local `.venv` dependency install succeeds.
+- Verification passes locally: `ruff check .`, `black --check .`, `mypy app`, and `pytest`.
+- Syntax verification passed with `.venv\Scripts\python -m compileall app tests`.
 - Docker Compose was not validated locally because Docker is not installed on this machine.
 
 ## Next Phase

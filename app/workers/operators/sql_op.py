@@ -7,4 +7,3 @@ class SQLOperator(Operator):
 
     async def execute(self, context: OperatorContext) -> dict[str, object]:
         raise NotImplementedError("SQLOperator execution is implemented after connection handling.")
-

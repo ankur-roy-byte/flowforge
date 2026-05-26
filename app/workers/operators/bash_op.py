@@ -7,4 +7,3 @@ class BashOperator(Operator):
 
     async def execute(self, context: OperatorContext) -> dict[str, object]:
         raise NotImplementedError("BashOperator execution is implemented in Phase 3.")
-

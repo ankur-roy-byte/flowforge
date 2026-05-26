@@ -7,6 +7,7 @@ FlowForge is a distributed DAG orchestration engine built with FastAPI, PostgreS
 - [Project context and recovery notes](docs/PROJECT_CONTEXT.md)
 - [High-level design](docs/architecture/high-level-design.md)
 - [Low-level design](docs/architecture/low-level-design.md)
+- [Implementation checklist](docs/implementation-checklist.md)
 - [Phase 0 notes](docs/phases/phase-0.md)
 
 ## Phase 0 Status
@@ -48,6 +49,7 @@ With Docker:
 
 ```bash
 cd flowforge
+cp .env.example .env
 make up
 ```
 
